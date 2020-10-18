@@ -113,3 +113,40 @@ http://119.23.212.211:8080/birthday-basic/
 3. 注意在手机上的表现。
 4. memories模块动态生成。  
 这些都是有空之后会慢慢做的，欢迎持续关注~
+
+
+
+
+
+
+
+
+
+
+
+	frp release下载：https://github.com/fatedier/frp/releases
+	# 解压
+	tar zxf frp_0.27.0_linux_amd64.tar.gz
+
+
+	设置frp服务自启动
+# 创建后台启动模版
+vi /etc/systemd/system/frp.service
+# 内容如下：
+[Unit]
+Description=frps
+After=network.target
+
+[Service]
+ExecStart=frps -c frps.ini 
+
+[Install]
+WantedBy=multi-user.target
+
+
+# 启动测试
+systemctl start frp.service
+# 查看启动状态
+systemctl status frp.service
+# 开机自启
+systemctl enable frp.service
