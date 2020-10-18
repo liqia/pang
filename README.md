@@ -133,15 +133,15 @@ http://119.23.212.211:8080/birthday-basic/
 # 创建后台启动模版
 vi /etc/systemd/system/frp.service
 # 内容如下：
-[Unit]
-Description=frps
-After=network.target
+[Unit]   
+Description=frps   
+After=network.target   
 
-[Service]
-ExecStart=frps -c frps.ini 
+[Service]   
+ExecStart=frps -c frps.ini   
 
-[Install]
-WantedBy=multi-user.target
+[Install]   
+WantedBy=multi-user.target    
 
 
 # 启动测试
